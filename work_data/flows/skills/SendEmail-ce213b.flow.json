@@ -1,0 +1,28 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "fromAddress": "yura.chen.neoser@gmail.com",
+    "toAddress": "{{event.payload.text}}",
+    "subjectElement": "builtin_text-xL4I5Y",
+    "contentElement": "builtin_text-uNZWlM"
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "basic-skills/send_email {\"fromAddress\":\"yura.chen.neoser@gmail.com\",\"toAddress\":\"{{event.payload.text}}\",\"subjectElement\":\"builtin_text-xL4I5Y\",\"contentElement\":\"builtin_text-uNZWlM\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ],
+      "id": "973445"
+    }
+  ]
+}

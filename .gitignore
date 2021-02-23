@@ -1,0 +1,13 @@
+# Compiled Python bytecode
+*.py[cod]
+
+# Log files
+*.log
+
+# JetBrains IDE
+.idea/
+
+# Project general
+venv
+.env
+storage

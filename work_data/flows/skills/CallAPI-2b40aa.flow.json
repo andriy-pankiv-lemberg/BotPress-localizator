@@ -1,0 +1,30 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "method": "get",
+    "memory": "user",
+    "body": "{\n   \"email\": \"{{event.payload.text}}\"\n}",
+    "url": "https://patient-app-api.carepath-dev.tech/api/v1/patient/profile",
+    "variable": "profile",
+    "invalidJson": false
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "basic-skills/call_api {\"url\":\"https://patient-app-api.carepath-dev.tech/api/v1/patient/profile\",\"method\":\"get\",\"body\":\"{\\n   \\\"email\\\": \\\"{{event.payload.text}}\\\"\\n}\",\"memory\":\"user\",\"variable\":\"profile\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ],
+      "id": "732629"
+    }
+  ]
+}

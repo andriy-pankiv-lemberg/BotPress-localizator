@@ -1,0 +1,22 @@
+[
+  {
+    "id": "builtin_single-choice-G76W47",
+    "formData": {
+      "choices$en": [
+        {
+          "title": "I agree to data policy",
+          "value": "agree"
+        },
+        {
+          "title": "Cancel",
+          "value": "cancel"
+        }
+      ],
+      "markdown$en": true,
+      "typing$en": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2020-12-02T22:07:50.688Z",
+    "modifiedOn": "2020-12-02T22:07:50.688Z"
+  }
+]
