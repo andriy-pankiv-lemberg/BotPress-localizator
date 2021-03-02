@@ -23,7 +23,9 @@ class BotReader(BaseReader):
             self._fill_content(bot_id)
         else:
             existed_bot = existed_bot[0]
+            bot_id = existed_bot.get('id')
             self._edit_bot(existed_bot.get('id'))
+        return bot_id
 
     def _edit_bot(self, bot_id):
         self._clear_bot(bot_id)

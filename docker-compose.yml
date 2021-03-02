@@ -9,16 +9,6 @@ services:
       - "5425:5432"
     volumes:
       - translations-db-data:/var/lib/postgresql/data
-  translations-db-2:
-    build: db
-    container_name: translations-db-2
-    env_file:
-      - .env
-    ports:
-      - "5420:5432"
-    volumes:
-      - translations-db-2-data:/var/lib/postgresql/data
 
 volumes:
   translations-db-data:
-  translations-db-2-data:
