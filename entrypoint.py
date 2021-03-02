@@ -1,14 +1,21 @@
-from logging import config
+from app.readers import BotReader, CsvReader
+from app.builder import CsvBuilder, BotBuilder
 
-from app.configs import SupervisorConfig, LoggingConfig
-from app.process.bot_reader import CoughSupervisor
+file_name = 'bot_with_json-frrrr.tgz'
+csv_file = 'bot_with_json-frrrr-76.csv'
+bot_id = 76
 
 
 def main():
-    LoggingConfig.create_folder_if_doesnt_exist(LoggingConfig.LOG_PATH)
-    config.dictConfig(LoggingConfig.LOG_API_CONF)
-    cough_supervisor = CoughSupervisor(SupervisorConfig)
-    cough_supervisor.run_tests()
+    bot_reader = BotReader(file_name)
+    bot_reader.read()
+    csv_builder = CsvBuilder(bot_id, ['en'])
+    csv_builder.build()
+    csv_reader = CsvReader(csv_file)
+    new_bots = csv_reader.read()
+    first_bot = new_bots[0]
+    bot_builder = BotBuilder(first_bot.get('id'))
+    bot_builder.build(f'new_bot-{first_bot.get("lang")}.tgz')
 
 
 if __name__ == "__main__":

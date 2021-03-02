@@ -1,9 +1,6 @@
 from psycopg2.extensions import connection
 
-from app.decorators import ErrorDefender, decorate_all_methods
 
-
-@decorate_all_methods(ErrorDefender)
 class DBConnector(connection):
 
     sql_functions = ['current_timestamp']
@@ -44,7 +41,7 @@ class DBConnector(connection):
             cursor_obj.execute(sql)
             self.commit()
 
-    def if_exists(self, table_name, where_statements, join_conditions=None, return_dict=None, return_all=False, statement_delimiter='AND', query_extension=None):
+    def select(self, table_name, where_statements, join_conditions=None, return_dict=None, return_all=False, statement_delimiter='AND', query_extension=None):
         sql = f"SELECT * FROM {table_name}{self.generate_join_statements(join_conditions)} WHERE {self.generate_statements(where_statements, statement_delimiter)}"
         if query_extension is not None:
             sql += query_extension

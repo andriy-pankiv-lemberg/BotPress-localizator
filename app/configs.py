@@ -5,11 +5,11 @@ load_dotenv()
 
 
 class TranslateDB:
-    HOST = os.getenv('TRANSLATE_RESULT_DB_HOST')
-    PORT = os.getenv('TRANSLATE_RESULT_DB_PORT')
-    NAME = os.getenv('TRANSLATE_RESULT_DB_NAME')
-    USER = os.getenv('TRANSLATE_RESULT_DB_USER')
-    PASSWORD = os.getenv('TRANSLATE_RESULT_DB_PASSWORD')
+    HOST = os.getenv('POSTGRES_DB_HOST')
+    PORT = os.getenv('POSTGRES_DB_PORT')
+    NAME = os.getenv('POSTGRES_DB')
+    USER = os.getenv('POSTGRES_USER')
+    PASSWORD = os.getenv('POSTGRES_PASSWORD')
 
 
 class SupervisorConfig:
