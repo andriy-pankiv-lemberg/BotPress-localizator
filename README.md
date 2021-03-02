@@ -3,7 +3,16 @@ Python module to help translate BotPress bot
 
 # How to use
 
-## Read bot
+First of all, you need to cope `.env.example` into `.env`.
+If you will host DB not locally - change DB configs in `.env`
+## DB
+### TranslateDB
+DB structure already present in a dump. All you need is to build docker container with command below:
+```shell script
+docker-compose up --build -d
+```
+## Usage
+### Read bot
 Firstly, add your `.tgz` bot file to `app/work_data/in/bots/`. After that, you can start reading your bot into DB.
 
 Example
@@ -15,7 +24,7 @@ bot_id = bot_reader.read()
 ```
 where `bot_id` ID of a bot in `TranslateDB`
 
-## Create CSV
+### Create CSV
 All you need, is to now `bot_id` and **list of languages** to translate with. After that, you can start creating your csv from DB.
 
 Example
@@ -27,7 +36,7 @@ csv_name = csv_builder.build()
 ```
 where `csv_name` is name of generated file in `app/work_data/out/csv/` folder.
 
-## Read CSV
+### Read CSV
 To read translated CSV(from previous step), you need to add edited .csv file to `app/work_data/in/csv/` folder. After that, you can start reading your csv into DB.
 
 ```python
@@ -45,12 +54,12 @@ where `new_bots` is a list of the new bots info
   },
   {
     "id": 3,
-    "lang": "en"
+    "lang": "ua"
   }
 ]
 ```
 
-## Build bot
+### Build bot
 All you need, is to have `bot_id` of the bot you need to build, as well as, name of a `.tgz` file(**with extension**)
 
 Example
