@@ -12,7 +12,7 @@ class TextReader(BaseReader):
     def read(self):
         texts = self._read_texts()
         for text in texts:
-            text_json = json.loads(text.get('text').replace("'", '"'))
+            text_json = json.loads(text.get('text').replace("'", '"').replace("\n", '').encode('unicode_escape'))
             text['text'] = text_json.get('display_text')
             text_id = self._create_text(text, self._bot_id, self._lang)
             self._create_variations(self._cast2variations(text_json), text_id)

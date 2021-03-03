@@ -92,7 +92,7 @@ class Base:
 
     @staticmethod
     def _read_file(path):
-        with open(path) as f:
+        with open(path, encoding="utf-8") as f:
             file = f.read()
         return file
 
